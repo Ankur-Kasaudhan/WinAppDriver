@@ -1,0 +1,25 @@
+@echo off
+
+
+set "WINAPPDRIVER_PATH=C:\Path\to\WinAppDriver.exe"
+
+
+rem Check if Windows Application Driver is installed
+where WinAppDriver >nul 2>&1
+if %errorlevel% equ 0 (
+  echo Windows Application Driver is already installed.
+) else (
+  echo Windows Application Driver is not installed. Installing...
+  rem Add installation steps for WinAppDriver here
+  "%WINAPPDRIVER_PATH%" /install
+  echo Windows Application Driver installation completed.
+)
+
+
+echo Starting Windows Application Driver...
+start "" "%WINAPPDRIVER_PATH%"
+echo Windows Application Driver started.
+
+
+pause
+
